@@ -1,4 +1,4 @@
-open System. IO
+open System.IO
 
 let empty = [ 0 .. 8 ] |> Seq.map (fun day -> day, 0L) |> Map.ofSeq
 let init =
@@ -24,5 +24,5 @@ let simulate init days =
     |> Map.values
     |> Seq.reduce (+)
 
-simulate init 80
-simulate init 256
+simulate init 80 |> printfn "PART1: %d"
+simulate init 256 |> printfn "PART2: %d"
