@@ -12,9 +12,8 @@ fn priority(c: char) -> u8 {
     }
 }
 
-fn intersect_groups(group: &[HashSet<char>]) -> u32 {
-    let mut iter = group.to_owned().into_iter();
-
+fn find_priority(group: Vec<HashSet<char>>) -> u32 {
+    let mut iter = group.into_iter();
     let intersection = iter
         .next()
         .map(|set| iter.fold(set, |set1, set2| &set1 & &set2))
@@ -38,7 +37,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                 HashSet::from_iter(Vec::from(right)),
             ];
 
-            intersect_groups(&group)
+            find_priority(group)
         })
         .sum();
 
@@ -49,7 +48,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .map(|line| HashSet::from_iter(line.chars()))
         .collect::<Vec<_>>()
         .chunks(3)
-        .map(intersect_groups)
+        .map(|sets| find_priority(sets.to_vec()))
         .sum();
 
     println!("2.part: {}", sum_part2);
