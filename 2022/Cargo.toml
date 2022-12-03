@@ -1,0 +1,20 @@
+[package]
+name = "advent-of-code"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+path = "src/day1.rs"
+name = "day1"
+
+[[bin]]
+path = "src/day2.rs"
+name = "day2"
+
+[[bin]]
+path = "src/day3.rs"
+name = "day3"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
