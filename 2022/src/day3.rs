@@ -33,12 +33,12 @@ fn main() -> Result<(), Box<dyn Error>> {
         .map(|line| {
             let chars: Vec<_> = line.chars().collect();
             let (left, right) = chars.split_at(chars.len() / 2);
-            let mut group = vec![
+            let group = vec![
                 HashSet::from_iter(Vec::from(left)),
                 HashSet::from_iter(Vec::from(right)),
             ];
 
-            intersect_groups(group.as_mut_slice())
+            intersect_groups(&group)
         })
         .sum();
 
