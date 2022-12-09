@@ -27,6 +27,18 @@ name = "day5"
 path = "src/day6.rs"
 name = "day6"
 
+[[bin]]
+path = "src/day7.rs"
+name = "day7"
+
+[[bin]]
+path = "src/day8.rs"
+name = "day8"
+
+[[bin]]
+path = "src/day9.rs"
+name = "day9"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
