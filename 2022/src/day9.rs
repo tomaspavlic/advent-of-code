@@ -23,14 +23,7 @@ fn part2(moves: &[(&str, i32)]) -> usize {
     for (direction, distance) in moves {
         for _ in 0..*distance {
             let head = ropes.get_mut(0).unwrap();
-
-            match *direction {
-                "R" => head.x += 1,
-                "L" => head.x -= 1,
-                "D" => head.y -= 1,
-                "U" => head.y += 1,
-                _ => todo!(),
-            }
+            head.move_in_direction(*&direction);
 
             for i in 0..ropes.len() - 1 {
                 let (head, tail) = get_mut_pair(&mut ropes, i, i + 1);
@@ -50,14 +43,7 @@ fn part1(moves: &[(&str, i32)]) -> usize {
 
     for (direction, distance) in moves {
         for _ in 0..*distance {
-            match *direction {
-                "R" => head.x += 1,
-                "L" => head.x -= 1,
-                "D" => head.y -= 1,
-                "U" => head.y += 1,
-                _ => todo!(),
-            }
-
+            head.move_in_direction(*&direction);
             tail.follow(&head);
             set.insert(tail.clone());            
         }
@@ -83,6 +69,16 @@ impl Position {
             self.y = self.y + (head.y - self.y).signum();
         }
     } 
+
+    fn move_in_direction(&mut self, dir: &str) {
+        match dir {
+            "R" => self.x += 1,
+            "L" => self.x -= 1,
+            "D" => self.y -= 1,
+            "U" => self.y += 1,
+            _ => todo!(),
+        }
+    }
 }
 
 fn get_mut_pair<'a, T>(vec: &'a mut Vec<T>, a: usize, b: usize) -> (&'a mut T, &'a mut T) {
