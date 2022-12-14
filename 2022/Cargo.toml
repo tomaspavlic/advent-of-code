@@ -39,6 +39,29 @@ name = "day8"
 path = "src/day9.rs"
 name = "day9"
 
+[[bin]]
+path = "src/day10.rs"
+name = "day10"
+
+[[bin]]
+path = "src/day11.rs"
+name = "day11"
+
+[[bin]]
+path = "src/day12.rs"
+name = "day12"
+
+[[bin]]
+path = "src/day13.rs"
+name = "day13"
+
+[[bin]]
+path = "src/day14.rs"
+name = "day14"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+pathfinding = "4.0.0"
+serde_json = "1.0.89"
+itertools = "0.10.5"
